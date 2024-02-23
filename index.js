@@ -18,7 +18,7 @@ const db = new pg.Client({
 db.connect();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static("client"));
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/client/index.html");
@@ -80,7 +80,6 @@ app.post("/login", async (req, res) => {
             res.send("Incorrect Password");
           }
         } else {
-            
             res.sendFile(__dirname + "/client/signup.html");
         }
       } catch (err) {
